@@ -19,4 +19,3 @@ class RectangleTest < Test::Unit::TestCase
 end
 
 
-
