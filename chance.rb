@@ -8,13 +8,24 @@ class Chance
   
   def get_chance_happening
     
-    ans = @occurance
-    return ans
+     @occurance
+    
   end
-  def get_chance_not_happening
+  
+  def ==(value)
+    if (value.class != Chance )
+      return false
+    else  
+      get_chance_happening == value.get_chance_happening
+    end
+    
+    
+  end
+  
+  def not
 
-    ans = @no_occurance
-    return ans
+   Chance.new(@no_occurance)
+    
    end
   
   
