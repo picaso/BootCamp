@@ -1,4 +1,6 @@
 require 'test/unit'
+require 'rectangle'
+require 'square'
 
 class  SquareTest < Test::Unit::TestCase
   def test_square_area
@@ -16,24 +18,5 @@ class RectangleTest < Test::Unit::TestCase
   end
 end
 
-class Rectangle  
-  def initialize(length, width)
-     @length = length
-     @width = width
-  end
-  
-  def area
-     @length * @width
-  end
-end
 
-
-class Square < Rectangle
-  
-  def initialize(side)
-     super(side, side)
-  end
-
-    
-end
 
