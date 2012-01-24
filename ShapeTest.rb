@@ -1,43 +1,39 @@
 require 'test/unit'
-class  ShapeTest < Test::Unit::TestCase
-  def test_area
-     rect =  Rectangle.new(6,4)
-    
-    assert_equal 24, rect.area
+
+class  SquareTest < Test::Unit::TestCase
+  def test_square_area
+     square = Square.new(6)
+     
+     assert_equal 36,square.area
   end
-  
-  def test_square_has_equal_sides
-     square = Square.new(6,6)
-     assert_equal square.length, square.width
-  end
-    
-   
 end
 
-class Rectangle
-  
+class RectangleTest < Test::Unit::TestCase
+  def test_rectangle_area
+    rectangle =  Rectangle.new(6,4)
+    
+    assert_equal 24, rectangle.area
+  end
+end
+
+class Rectangle  
   def initialize(length, width)
      @length = length
      @width = width
   end
+  
   def area
      @length * @width
   end
-  
-  
 end
 
 
-class Square
-  attr_reader :length, :width
+class Square < Rectangle
   
-  def initialize(length, width)
-     @length = length
-     @width = width
+  def initialize(side)
+     super(side, side)
   end
-  def area
-     @length * @width
-  end
+
     
 end
 
