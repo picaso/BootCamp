@@ -61,8 +61,5 @@ class  ChanceTest < Test::Unit::TestCase
     assert_equal Chance.new(0.5), Chance.new(1)-Chance.new(0.5)
   end
 
-  def test_guranteed
-    assert_equal 100, Chance.guaranteed
-  end
   
 end
