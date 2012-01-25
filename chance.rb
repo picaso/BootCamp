@@ -1,33 +1,62 @@
 class Chance
+  @@max = 100
+
+
   def initialize(value)
     @occurance = value
-    @no_occurance = 100-value
-    
-    
+
+
   end
-  
+
   def get_chance_happening
-    
-     @occurance
-    
+
+    @occurance
+
   end
-  
-  def ==(value)
-    if (value.class != Chance )
-      return false
-    else  
-      get_chance_happening == value.get_chance_happening
+
+  def ==(other_obj)
+    if other_obj.class != Chance
+      false
+    else
+      get_chance_happening == other_obj.get_chance_happening
     end
-    
-    
+
+
   end
-  
+
+
   def not
 
-   Chance.new(@no_occurance)
-    
-   end
-  
-  
+    Chance.new(@@max-@occurance)
+
+  end
+
+  def or_(other_obj)
+    self + other_obj
+
+  end
+
+  def and_(other_obj)
+    self*other_obj
+
+  end
+
+  def xor(other_obj)
+    or_(other_obj) - and_(other_obj)
+  end
+
+  def + (other_obj)
+    Chance.new(get_chance_happening+other_obj.get_chance_happening)
+  end
+
+  def * (other_obj)
+    Chance.new(get_chance_happening*other_obj.get_chance_happening)
+  end
+
+  def - (other_obj)
+    Chance.new(get_chance_happening-other_obj.get_chance_happening)
+  end
+
+
 end
 
