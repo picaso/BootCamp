@@ -1,30 +1,24 @@
+require File.expand_path(File.dirname(__FILE__) + '/quantity')
+require File.expand_path(File.dirname(__FILE__) + '/length')
+
 class Quantity
+  attr_accessor :unit, :amount
   def initialize(amount, unit)
-    @base = unit
     @amount = amount
     @unit = unit
   end
 
   def ==(other)
-    if other.class == Quantity
-      if convert_unit ==other.convert_unit
-        true
-      else
-        raise RuntimeError, "Does not Compute"
-      end
+    if other.unit.class == self.unit.class
+       self.convert_unit ==other.convert_unit
     else
-      false
+       raise RuntimeError, "Error"
     end
   end
 
   protected
   def convert_unit
-    conversion_index = Hash[:ft=> 12, :yd=> 36, :ml=> 63360, :in=> 1, :tsp=>1, :tbsp=> 3, :oz=> 6, :cup=> 48]
-    if conversion_index[@unit]!=nil
-      @amount * conversion_index[@unit]
-    else
-      @amount
-    end
+    @amount * unit.conversion_factor
   end
 
 end
