@@ -1,6 +1,7 @@
 require 'test/unit'
-require 'rectangle'
-require 'square'
+require File.expand_path(File.dirname(__FILE__) + '/square')
+require File.expand_path(File.dirname(__FILE__) + '/rectangle')
+
 
 class  SquareTest < Test::Unit::TestCase
   def test_square_area

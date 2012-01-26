@@ -1,5 +1,6 @@
 require 'test/unit'
-require 'chance'
+require File.expand_path(File.dirname(__FILE__) + '/chance')
+
 class  ChanceTest < Test::Unit::TestCase
   def test_probability_you_get_a_head_when_you_flip_a_coin
     
