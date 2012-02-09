@@ -17,7 +17,7 @@ class AttendantTest < Test::Unit::TestCase
     vehicle = Vehicle.new
     attendant = Attendant.new(lot)
     lot.expects(:park).with(vehicle).returns(vehicle)
-    assert_equal vehicle, attendant.park(vehicle)
+    assert_equal vehicle, attendant.park(vehicle) 
   end
 
   def test_attendant_gets_vehicle

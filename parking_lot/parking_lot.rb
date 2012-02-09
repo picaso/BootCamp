@@ -11,7 +11,7 @@ class Lot
     if can_park
       @lot[vehicle] = vehicle
       notify
-      return vehicle
+      vehicle
     else
       raise RuntimeError, "Parking lot full, cannot add new vehicle"
     end
@@ -22,7 +22,7 @@ class Lot
       raise RuntimeError, "Car not found, cannot be removed"
     else
       notify
-      return vehicle
+      vehicle
     end
   end
 
