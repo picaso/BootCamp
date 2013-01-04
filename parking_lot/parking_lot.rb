@@ -17,6 +17,10 @@ class Lot
     end
   end
 
+  def subscribe_to_lot subscribe
+    subscribe subscribe
+  end
+
   def remove(vehicle)
     if @lot.delete(vehicle) == nil
       raise RuntimeError, "Car not found, cannot be removed"
