@@ -6,12 +6,6 @@ require 'mocha'
 
 class AttendantTest < Test::Unit::TestCase
 
-  # def test_mocking_a_class_method
-  #   product = Product.new
-  #   Product.expects(:find).with(1).returns(product)
-  #   assert_equal product, Product.find(1)
-  # end
-
   def test_attendant_parks_vehicle
     lot = Lot.new
     vehicle = Vehicle.new
@@ -30,21 +24,15 @@ class AttendantTest < Test::Unit::TestCase
     assert_equal vehicle, attendant.get(vehicle)
   end
 
-  def test_if_attendant_can_park
+  def test_if_attendant_can_park_at_16
     lot = Lot.new(10)
     vehicle2 = Vehicle.new
 
-    attendant = Attendant.new(lot)
+    attendant = Attendant.new(lot, 16)
 
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-    attendant.park(Vehicle.new)
-
+    8.times do |v|
+      attendant.park(Vehicle.new)
+    end
 
     assert_raise RuntimeError do
       assert_equal vehicle2, attendant.park(vehicle2)
